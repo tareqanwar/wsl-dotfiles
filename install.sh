@@ -29,6 +29,7 @@ mkdir -p ~/.config
 
 rm -f ~/c
 ln -sf /mnt/c ~/c
+ln -sf /mnt/c/Users/trqnw/ ~/home
 rm -f ~/projects
 ln -sf /mnt/c/Projects ~/projects
 rm -f ~/downloads
