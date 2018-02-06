@@ -8,7 +8,7 @@ echo "✔ base packeges are installed"
 git pull origin master
 echo "dotfiles are uptodate"
 
-ln -sf $(pwd)/bashrc ~/.bashrc
+ln -sf $(pwd)/.dotfiles//bashrc ~/.bashrc
 echo "✔ zsh as default shell"
 
 # Run ZSH Automatically
@@ -19,10 +19,10 @@ chsh -s /usr/bin/zsh
 [ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 echo "✔ oh my zsh configured!"
 
-ln -sf $(pwd)/zshrc ~/.zshrc
+ln -sf $(pwd)/.dotfiles//zshrc ~/.zshrc
 echo "✔ .zshrc symlinked"
 
-ln -sf $(pwd)/gitconfig ~/.gitconfig
+ln -sf $(pwd)/.dotfiles//gitconfig ~/.gitconfig
 echo "✔ .gitconfig symlinked"
 
 mkdir -p ~/.config
