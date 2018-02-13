@@ -42,7 +42,7 @@ echo "✔ alias for windows folders"
 
 sudo apt -qq install nodejs
 sudo apt -qq install npm
-npm install -g nodemon
+sudo npm install -g nodemon
 sudo apt -qq install python-pip
 echo "✔ apt dev tools installed"
 
