@@ -40,31 +40,59 @@ ln -sf /mnt/e/Workspace/ ~/dev
 ln -sf /mnt/e/Workspace/Personal\ Dashboard/ ~/pd
 echo "✔ alias for windows folders"
 
-sudo apt -qq install nodejs
-sudo apt -qq install npm
+sudo apt -y install nodejs
+sudo apt -y install npm
 sudo npm install -g nodemon
-sudo apt -qq install python-pip
-echo "✔ apt dev tools installed"
+echo "✔ installed nodejs, npm, nodemon"
 
-sudo apt -qq install nodejs
-sudo apt -qq install npm
-sudo npm install -g nodemon
-sudo apt -qq install python-pip
-echo "✔ installed nodejs, npm, nodemon, python"
+apt-get install python-software-properties
+echo "✔ installed install python-software-properties to be able to add external repo"
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
-sudo apt-get update
-sudo apt-get install mongodb-org
+sudo apt update
+sudo apt -y install mongodb-org
 echo "✔ installed mongodb"
 
+echo "✔ staring lamp stack installation"
+
+sudo apt install -y apache2 apache2-utils
+systemctl status apache2
+sudo systemctl start apache2
+sudo systemctl enable apache2
+apache2 -v
+echo "✔ apache installed and enabled successfully"
+
+sudo chown www-data:www-data /var/www/html/ -R
+echo "✔ changed owner of the html folder to www-data"
+
+sudo apt install mariadb-server mariadb-client
+systemctl status mariadb
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+echo "✔ mariadb installed and enabled successfully. but we will install mysql setting later"
+
 sudo add-apt-repository ppa:ondrej/php
-sudo apt update
-sudo apt -qq install php7.1 php7.1-mbstring php7.1-xml
+sudo apt update && apt upgrade
+sudo apt install -y php7.2
+sudo apt install -y php-pear php7.2-curl php7.2-dev php7.2-gd php7.2-mbstring php7.2-zip php7.2-mysql php7.2-xml
 echo "✔ php installed"
+
+sudo a2enmod php7.2
+sudo systemctl restart apache2
+echo "✔ restarted apache"
+
+php --version
 
 curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
 echo "✔ installed composer"
 
 cp ~/.dotfiles/.hyper.js ~/c/Users/trqnw/
 echo "✔ copied .hyper.js to home"
+
+sudo mysql_secure_installation
+mariadb --version
+echo "✔ mysql installation successful"
+
+sudo systemctl restart apache2
+echo "✔ restarted apache"
