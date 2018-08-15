@@ -1,9 +1,9 @@
 echo "apt update..."
-sudo apt -qq update
+sudo apt -y update && apt -y upgrade
 echo "✔ update done!"
 
-sudo apt -qq install curl zsh git
-echo "✔ base packeges are installed"
+sudo apt -y install curl zsh git
+echo "✔ to make sure base packeges are installed"
 
 git pull origin master
 echo "dotfiles are uptodate"
