@@ -57,7 +57,6 @@ echo "✔ installed mongodb"
 echo "✔ staring lamp stack installation"
 
 sudo apt install -y apache2 apache2-utils
-systemctl status apache2
 sudo systemctl start apache2
 sudo systemctl enable apache2
 apache2 -v
@@ -67,14 +66,13 @@ sudo chown www-data:www-data /var/www/html/ -R
 echo "✔ changed owner of the html folder to www-data"
 
 sudo apt install mariadb-server mariadb-client
-systemctl status mariadb
 sudo systemctl start mariadb
 sudo systemctl enable mariadb
 echo "✔ mariadb installed and enabled successfully. but we will install mysql setting later"
 
 sudo add-apt-repository ppa:ondrej/php
 sudo apt update && apt upgrade
-sudo apt install -y php7.2
+sudo apt install -y php
 sudo apt install -y php-pear php7.2-curl php7.2-dev php7.2-gd php7.2-mbstring php7.2-zip php7.2-mysql php7.2-xml
 echo "✔ php installed"
 
