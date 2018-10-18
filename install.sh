@@ -29,15 +29,7 @@ mkdir -p ~/.config
 
 rm -f ~/c
 ln -sf /mnt/c ~/c
-ln -sf /mnt/c/Users/trqnw/ ~/home
-rm -f ~/projects
-ln -sf /mnt/c/Projects ~/projects
-rm -f ~/downloads
-ln -sf /mnt/c/Users/trqnw/Downloads ~/downloads
-rm -f ~/pictures
-ln -sf /mnt/c/Users/trqnwr/Pictures ~/pictures
-ln -sf /mnt/e/Workspace/ ~/dev
-ln -sf /mnt/e/Workspace/Personal\ Dashboard/ ~/pd
+ln -sf /mnt/d/Workspace/ ~/dev
 echo "✔ alias for windows folders"
 
 sudo apt -y install nodejs
